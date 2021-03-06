@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+  <html lang="en"> 
+    <head>  
+      <meta charset="UTF-8">  
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">               
+      <title>Covid-19 Risk Predictor</title> 
+      <link rel="icon" href="virus.png"> 
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<html>
+<body>
+<div class="container">
+  <form action="{{ url_for('predict')}}"method="post">
+    </br>
+    <h2 style="text-align:center;">Covid-19 Risk Predictor</h2>
+    </br>
+      <h3>Enter Your Details </h3>
+      <!-- <div class="col-third">
+      <h4>Case Number</span></h4>
+      <div class="input-group">
+        <input type="text" placeholder="Case Number "/>
+      </div>
+      </div> -->
+    <!-- </div>
+    <div class="row"> -->
+      <!-- <div class="col-third">
+        <h4>Gender</h4>
+        <div class="input-group" style="width:170%;">
+          <select>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+      </div> -->
+      <h3 style="margin-top:8%;">Gender<span class="required">*</span></h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Gender" value="1" id="Gender-yes"/>
+          <label for="Gender-yes">Male</label>
+          <input type="radio" name="Gender" value="0" id="Gender-no">
+          <label for="Gender-no">Female</label>
+        </div>
+        <h3 style="margin-top:7%;">Age</h3>
+        <div class="input-group" style="margin-top:-10%;width:40%;padding-left:10%;">
+            <input type="text" name="Age" placeholder="Age"/>
+        </div>
+    <h3 style="color:#399cbd;">Symptoms </h3>
+    <h3 style="color:black;margin-top:8%;">1) Cough <span class="required">*</span></h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Cough" value="1" id="Cough-yes"/>
+          <label for="Cough-yes">Yes</label>
+          <input type="radio" name="Cough" value="0" id="Cough-no"checked="true"/>
+          <label for="Cough-no">No</label>
+        </div>
+    <h3 style="color:black;">2) Fever <span class="required">*</span></h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Fever" value="1" id="Fever-yes"/>
+          <label for="Fever-yes">Yes</label>
+          <input type="radio" name="Fever" value="0" id="Fever-no"checked="true"/>
+          <label for="Fever-no">No</label>
+        </div>
+    <h3 style="color:black;">3) Dyspnea <span class="required">*</span></h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Dyspnea" value="1" id="Dyspnea-yes"/>
+          <label for="Dyspnea-yes">Yes</label>
+          <input type="radio" name="Dyspnea" value="0" id="Dyspnea-no"checked="true"/>
+          <label for="Dyspnea-no">No</label>
+        </div>
+    <!-- <h3 style="color:black;">4) Pneumonia </h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Pneumonia" value="1" id="Pneumonia-yes"/>
+          <label for="Pneumonia-yes">Yes</label>
+          <input type="radio" name="Pneumonia" value="0" id="Pneumonia-no"/>
+          <label for="Pneumonia-no">No</label>
+        </div>
+        <h3 style="color:black;">5) Asthenia </h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Asthenia" value="1" id="Asthenia-yes"/>
+          <label for="Asthenia-yes">Yes</label>
+          <input type="radio" name="Asthenia" value="0" id="Asthenia-no"/>
+          <label for="Asthenia-no">No</label>
+        </div> -->
+<div class="col-half">
+    <h3>PO2 </h3>
+      <div class="input-group" style="width:100%;">
+        <input type="text" name="pO2" placeholder="pO2"/>
+      </div>
+      </div>
+  <div class="col-half">
+    <h3>Temperature (°C) <span class="required">*</span></h3>
+      <div class="input-group" style="width:100%;">
+        <input type="text" name="Temperature" placeholder="Temperature" required/>
+      </div>
+      </div>
+    <h3 style="padding-top:30%;">Contact With Covid-19 Person </h3>
+    <div class="input-group" style="width:70%;">
+        <input type="radio" name="Contact_with_COVID_positive_patient" value="1" id="contact-Yes"/>
+          <label for="contact-Yes">Yes</label>
+          <input type="radio" name="Contact_with_COVID_positive_patient" value="0" id="contact-no"/>
+          <label for="contact-no">No</label>
+        </div>
+   <h3 style="margin-top:5%;padding-top:3%;">Swab Test Results </h3>
+      <div class="input-group" style="width:70%;">
+        <input type="radio" name="Swab_test_result" value="1" id="Swab-Positive"/>
+          <label for="Swab-Positive">Positive</label>
+          <input type="radio" name="Swab_test_result" value="0" id="Swab-Negative"/>
+          <label for="Swab-Negative">Negative</label>
+        </div>
+      <input type="submit" style="width:50%;margin-left:25%;margin-top:5%;background-color:#7ed321;color:white;">
+      </div> 
+      </div>
+    </form>
+    <br>
+    <br>
+    <div style="padding-left:40%;">
+    <h2>{{pred}}</h2>
+    </div>
+ 
+</body>
+<!-- <div class="switch" style="padding-left:60%;margin-top:-9%;">
+      <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+      <label for="cmn-toggle-1"></label>
+    </div> -->
+</html>
