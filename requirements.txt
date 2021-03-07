@@ -62,7 +62,6 @@ pyquery==1.4.1
 pytest==5.4.3
 python-dateutil==2.8.1
 pytz==2020.1
-pywin32==228
 PyYAML==5.3.1
 requests==2.24.0
 rsa==3.4.2
@@ -74,13 +73,3 @@ simplejson==3.17.0
 six==1.15.0
 sklearn==0.0
 sklearn-pandas==2.1.0
-soupsieve==2.0.1
-threadpoolctl==2.1.0
-toml==0.10.2
-tqdm==4.47.0
-urllib3==1.25.9
-wcwidth==0.2.5
-Werkzeug==1.0.1
-wikipedia==1.4.0
-wrapt==1.12.1
-xlwings==0.19.4
